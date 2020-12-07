@@ -44,7 +44,7 @@ export class AppController {
       res.status(200).send(`OK with <${key}, ${value}>`).end();
 
 
-      this.logger.log(`Put value from ${req.ip},  <${key}, $value}>`)
+      this.logger.log(`Put value from ${req.ip},  <${key}, ${value}>`)
 
       if (pair.webhookList !== undefined) {
         const webhooks = pair.webhookList.split("***").filter(item => item !== "");
