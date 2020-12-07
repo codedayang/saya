@@ -41,7 +41,7 @@ export class AppController {
       await this.appService.putValue(key, value);
 
 
-      res.status(200).send(`OK with <${key}, ${value}>`).end();
+      res.status(200).send(`OK with <${key}, ${value}>\n`).end();
 
 
       this.logger.log(`Put value from ${req.ip},  <${key}, ${value}>`)
@@ -70,7 +70,7 @@ export class AppController {
 
     } catch (e) {
       console.log(e);
-      res.status(500).send("ERROR");
+      res.status(500).send("ERROR\n");
     }
   }
 
@@ -90,10 +90,10 @@ export class AppController {
     try {
       await this.appService.setRedirect(key, value);
       this.logger.log(`Set redirect from ${req.ip}, ${key}, ${value}`)
-      res.status(200).send("OK");
+      res.status(200).send("OK\n");
     } catch (e) {
       console.log(e);
-      res.status(500).send("ERROR");
+      res.status(500).send("ERROR\n");
     }
   }
 
@@ -102,10 +102,10 @@ export class AppController {
     try {
       await this.appService.addWebhook(key, value);
       this.logger.log(`Add webhook from ${req.ip}, ${key}, ${value}`)
-      res.status(200).send("OK");
+      res.status(200).send("OK\n");
     } catch (e) {
       console.log(e);
-      res.status(500).send("ERROR");
+      res.status(500).send("ERROR\n");
     }
   }
 }
