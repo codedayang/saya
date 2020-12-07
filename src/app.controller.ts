@@ -21,9 +21,9 @@ export class AppController {
         return res.redirect(pair.redirectTo);
       }
       this.logger.log(`Get value from ${req.ip}, <${pair.key}, ${pair.value}>`)
-      return res.status(200).send(pair.value);
+      return res.status(200).send(pair.value + "\n");
     } catch (e) {
-      return res.status(200).send("");
+      return res.status(200).send("\n");
     }
 
   }
