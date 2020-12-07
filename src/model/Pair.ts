@@ -8,7 +8,7 @@ export class Pair {
     @Column()
     key: string;
 
-    @Column({default: ""})
+    @Column("longtext")
     value: string = "";
 
     // 为空则不执行
