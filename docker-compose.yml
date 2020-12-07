@@ -11,16 +11,16 @@ services:
     volumes:
       - "./mysql/volume:/var/lib/mysql"
   app:
-    image: codedayang/saya
+    image: codedayang/saya:0.1.0
     environment:
-      - PORT=3000 # 端口
+      - PORT=3000 # 应用启动的端口
       - MYSQL_HOST=database # 数据库地址
       - MYSQL_PORT=3306 # 数据库端口
       - MYSQL_DB=saya # 数据库名
       - MYSQL_USERNAME=root # 数据库账号
       - MYSQL_PASSWORD=root # 数据库密码
     ports:
-      - $PORT:3000
+      - 3000:3000 # 端口映射 
     depends_on:
       - database
     volumes:
