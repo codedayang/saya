@@ -11,7 +11,7 @@ services:
     volumes:
       - "./mysql/volume:/var/lib/mysql"
   app:
-    image: codedayang/saya:0.1.0
+    image: codedayang/saya
     environment:
       - PORT=3000 # 应用启动的端口
       - MYSQL_HOST=database # 数据库地址
