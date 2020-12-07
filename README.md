@@ -10,10 +10,10 @@ Saya是一个开箱即用的使用http通信的键值对存储工具
 - 发生更改时webhook通知（添加Webhook）
 
 #### 如何部署
-
-下载docker-compose.yml文件，在其所在目录运行
 ```shell
-docker-compose up
+mkdir saya
+curl -O https://raw.githubusercontent.com/yk337/saya/master/docker-compose.yml
+docker-compose up -d
 ```
 #### 如何配置
 修改docker-compose.yml文件内的environment
