@@ -40,6 +40,7 @@ export class AppService {
     if (pair == null) {
       await this.pairRepository.save({
         key: key,
+        value: "",
         redirectTo: url
       })
     } else {
@@ -53,6 +54,7 @@ export class AppService {
     if (pair == null) {
       await this.pairRepository.save({
         key: key,
+        value: "",
         webhookList: url
       })
     } else {
