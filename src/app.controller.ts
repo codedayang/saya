@@ -99,6 +99,10 @@ export class AppController {
   @Post("/:key/setRedirect")
   async setRedirect(@Param("key") key: string, @Body() value: string, @Req() req: Request, @Res() res: Response) {
     try {
+      const pair = await this.appService.find(key);
+      if (pair == null) {
+        await this.appService.putValue(key, "");
+      }
       await this.appService.setRedirect(key, value);
       this.logger.log(`Set redirect from ${req.ip}, ${key}, ${value}`)
       res.status(200).send("OK\n");
@@ -111,6 +115,10 @@ export class AppController {
   @Post("/:key/addWebhook")
   async addWebhook(@Param("key") key: string, @Body() value: string, @Req() req: Request, @Res() res: Response) {
     try {
+      const pair = await this.appService.find(key);
+      if (pair == null) {
+        await this.appService.putValue(key, "");
+      }
       await this.appService.addWebhook(key, value);
       this.logger.log(`Add webhook from ${req.ip}, ${key}, ${value}`)
       res.status(200).send("OK\n");
