@@ -76,13 +76,24 @@ export class AppController {
 
   @Get("/:key/ui")
   @Render("editor")
-  async getUi(@Param("key") key: string, @Req() req: Request): Promise<any> {
-    const pair = await this.appService.find(key);
-    this.logger.log(`Get ui from ${req.ip},  <${pair.key}, ${pair.value}>`)
-    return {
-      key: key,
-      value: pair.value
-    };
+  async getUi(@Param("key") key: string, @Req() req: Request, @Res() res: Response) {
+
+    try {
+      const pair = await this.appService.find(key);
+      if (pair.redirectTo !== "") {
+        return res.redirect(pair.redirectTo);
+      }
+      this.logger.log(`Get ui from ${req.ip},  <${pair.key}, ${pair.value}>`)
+      return {
+        key: key,
+        value: pair.value
+      };
+    } catch (e) {
+      return {
+        key: key,
+        value: ""
+      };
+    }
   }
 
   @Post("/:key/setRedirect")
