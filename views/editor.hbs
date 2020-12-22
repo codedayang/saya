@@ -52,15 +52,59 @@
             font-size: 36px;
         }
 
+        .header {
+            display: flex;
+            flex-direction: row;
+            text-align: left;
+            margin-left: 2.67em;
+            margin-right: 2.67em;
+            justify-content: space-between;
+        }
+
+        .header-title {
+            display: inline;
+
+        }
+
+        .currentkey {
+            display: inline;
+            align-self: center;
+        }
+
+        @media screen and (max-width: 600px) {
+            .header {
+                display: block;
+            }
+        }
+
+        .footer {
+            margin-top: 32px;
+        }
+
     </style>
 
     <title>Saya editor</title>
 </head>
 <body>
+<div class="header">
+    <a href="https://github.com/codedayang/saya" target="_blank" class="header-title">
+        <h1>
+            Saya<small> - 趁手的多功能快速记事本服务</small>
+        </h1>
+    </a>
+    <div class="currentkey">{{ key }}</div>
+</div>
 <div id="valueInputGroup" class="input-group">
     <textarea id="valueInput" type="text" class="form-control">{{ value }}</textarea>
 </div>
 <button id="submitButton" type="button" class="btn btn-success">Submit</button>
+
+<div class="footer">
+    MIT licensed | Copyright (C) 2020-2020 by
+    <a href="https://github.com/codedayang" target="_blank">
+        codedayang
+    </a>
+</div>
 </body>
 
 <script>
