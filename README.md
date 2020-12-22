@@ -13,7 +13,7 @@
 #### 如何部署
 ```shell
 mkdir saya
-curl -O https://raw.githubusercontent.com/yk337/saya/master/docker-compose.yml
+curl -O https://raw.githubusercontent.com/codedayang/saya/master/docker-compose.yml
 docker-compose up -d
 ```
 #### 如何配置
