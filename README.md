@@ -1,9 +1,10 @@
 # Saya
-Saya是一个开箱即用的使用http通信的键值对存储工具
+趁手的多功能快速记事本服务
 
 它可以：
 
-- config信息保存
+- 保存键值对形式的信息
+- 在线动态config
 - mock接口
 - 在线剪贴板
 - 缩短网址（设置重定向）
@@ -16,19 +17,26 @@ curl -O https://raw.githubusercontent.com/yk337/saya/master/docker-compose.yml
 docker-compose up -d
 ```
 #### 如何配置
+docker-compose内已自带数据库，可通过配置更换
+
 修改docker-compose.yml文件内的environment
-- PORT=3000 # 端口
+- PORT=3000 # 应用启动的端口
 - MYSQL_HOST=database # 数据库地址
 - MYSQL_PORT=3306 # 数据库端口
 - MYSQL_DB=saya # 数据库名
 - MYSQL_USERNAME=root # 数据库账号
 - MYSQL_PASSWORD=root # 数据库密码
 
+记得端口映射配置
+ports:
+- 3000:3000 # [应用在容器内端口]:[映射到宿主机端口]
+
 ##### 开启https
 
-在docker-compose所在目录新建文件夹`SSLCert`,并放入公钥与私钥文件
-`full_chain.pem` 和 `private.key `
+- 建议使用nginx
 
+- [Deprecated]在docker-compose所在目录新建文件夹`SSLCert`,并放入公钥与私钥文件
+`full_chain.pem` 和 `private.key `。
 如果存在则启动https，否则使用http
 
 #### 使用说明
